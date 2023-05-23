@@ -17,7 +17,7 @@ print(f"A palavra tem {len(sorteio)} letras\n")
 tracos = ("_") * len(sorteio)
 print(tracos, end=" \n\n")
 
-while True:
+while tentativas < chances:
     if sorteio == "smartphone":
         print("1º DICA: Tecnologia\n2º DICA: Usamos no dia a dia")
     if sorteio == "fogueira":
