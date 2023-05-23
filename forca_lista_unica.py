@@ -13,9 +13,7 @@ tentativas = 0
 chances = 5
 letras_usuario = []
 
-print(f"A palavra tem {len(sorteio)} letras\n")
 tracos = ("_") * len(sorteio)
-print(tracos, end=" \n\n")
 
 
 while tentativas < chances :
