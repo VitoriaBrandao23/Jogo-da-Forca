@@ -9,7 +9,6 @@ import random
 
 palavras = ["smartphone", "fogueira", "Silvio Santos", "Queen", "manteiga", "rede", "piloto", "Maria Leopoldina", "fronteira"]
 sorteio = random.choice(palavras)
-letras_sorteio = [" " for letra in sorteio]
 tentativas = 0
 chances = 5
 letras_usuario = []
@@ -48,12 +47,12 @@ while True:
 
     if letra in sorteio:
         print("\nVocê acertou uma letra!")
-        '''acertos = " "
+        acertos = " "
         for certo in sorteio: 
             if certo in letras_usuario: #rever essa parte novamente
                 acertos += certo
             else:
-                acertos += "_" '''
+                acertos += "_" 
     else:
         print("\nNão foi dessa vez. Tente novamente!")
         tentativas += 1
@@ -63,11 +62,10 @@ while True:
     if letra in letras_usuario:
         print(f"Você já escolheu essas letras: {letras_usuario}\n")
     
-    palavra_correta = " "
-    for i in letras_sorteio:
-        palavra_correta += i  
-
-    if sorteio == palavra_correta:
-        break
+#fim do jogo
+if tentativas == chances:
+    print("GAME OVER")
+else:
+    print("VOCÊ GANHOU A RODADA")
 
 print(f"\nA palavra era: {sorteio}")
