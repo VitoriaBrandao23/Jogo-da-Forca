@@ -13,9 +13,12 @@ tentativas = 0
 chances = 5
 letras_usuario = []
 
-print(f"A palavra tem {len(sorteio)} letras\n")
+print(f"A palavra tem {len(sorteio)} letra\n")
 tracos = ("_") * len(sorteio)
 print(tracos, end=" \n\n")
+
+for j in range(0, len(sorteio)):
+    letras_usuario.append("_")
 
 while tentativas < chances:
     if sorteio == "smartphone":
@@ -44,15 +47,19 @@ while tentativas < chances:
         letra = input("Digite uma letra: ")
     
     letras_usuario.append(letra)
+    #substituindo as letras certas na palavra desconhecida
+    for i in range(0, len(sorteio)):
+        if letra == sorteio[i]:
+            letras_usuario[i] = letra
 
     if letra in sorteio:
         print("\nVocê acertou uma letra!")
-        acertos = " "
+        '''acertos = " "
         for certo in sorteio: 
             if certo in letras_usuario: #rever essa parte novamente
                 acertos += certo
             else:
-                acertos += "_" 
+                acertos += "_" '''
     else:
         print("\nNão foi dessa vez. Tente novamente!")
         tentativas += 1
