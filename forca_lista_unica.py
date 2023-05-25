@@ -1,6 +1,72 @@
-chances = 5
+corpo = [
+"""
+  *-----*
+  |     |
+        |
+        |
+        |
+        |
+        |
+""",
+"""
+  *-----*
+  |     |
+  O     |
+        |
+        |
+        |
+        |
+""",
+"""
+  *-----*
+  |     |
+  O     |
+  |     |
+        |
+        |
+        |
+""",
+"""
+  *-----*
+  |     |
+  O     |
+ /|     |
+        |
+        |
+        |
+""",
+"""
+  *-----*
+  |     |
+  O     |
+ /|\    |
+        |
+        |
+        |
+""",
+"""
+  *-----*
+  |     |
+  O     |
+ /|\    |
+ /      |
+        |
+        |
+""",
+"""
+  *-----*
+  |     |
+  O     |
+ /|\    |
+ / \    |
+        |
+        |
+"""
+]
+#cabeçalho
+chances = 6
 def inicio() :
-  nome=input("   Por favor digite seu nome de usuario :")
+  nome=input("   Por favor digite seu nome de usuario: ")
   print("|","-"*42,"|")
   print("|"," "*9,f" Olá,seja bem vindo {nome}"," "*10,"|")
   print("|","-="*21,"|")
@@ -76,26 +142,36 @@ while True:
     print(letras_certas)
   
     if letra in sorteio.lower():
-        print("\nVocê acertou uma letra!")
+      print(corpo[0])
+      print("\nVocê acertou uma letra!")
+      print(f"Letras digitadas: {digitadas}")
     else:
-        print("\nNão foi dessa vez. Tente novamente!")
-        chances-=1
-        tentativas+=1
-        print(f"Você cometeu {tentativas} erros e {chances} chances")
+      chances-=1
+      if chances == 5:
+        print(corpo[1])
+      if chances == 4:
+         print(corpo[2])
+      if chances == 3:
+          print(corpo[3])
+      if chances == 2:
+        print(corpo[4])
+      if chances == 1:
+        print(corpo[5])
+      if chances == 0:
+        print(corpo[6])
+      print("\nNão foi dessa vez. Tente novamente!")
+      tentativas+=1
+      print(f"Você cometeu {tentativas} erros e tem {chances} chances")
+      print(f"Letras digitadas: {digitadas}")
     ganhou = True
-  
+    #finalização
     for i in sorteio:
-        if i  not in digitadas:
-            ganhou = False
+      if i  not in digitadas:
+        ganhou = False
     if chances == 0 or ganhou:
-                break
-        
+      break
+#fim do jogo
 if ganhou:
-
-    print("Parabéns, você ganhou!!!!!!!!!!!!!!")
-
+  print("Parabéns, você ganhou!!!")
 else:
-
-    print(f"Você perdeu! A palavra era: {sorteio}")
-
-
+  print(f"Você perdeu! A palavra era: {sorteio}")
