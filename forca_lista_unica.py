@@ -90,5 +90,12 @@ while True:
     if chances == 0 or ganhou:
                 break
         
+if ganhou:
+
+    print("Parabéns, você ganhou!!!!!!!!!!!!!!")
+
+else:
+
+    print(f"Você perdeu! A palavra era: {sorteio}")
 
 
