@@ -16,22 +16,22 @@ o_placar()
 def linhas ():
   print("|","-"*42,"|")
 
-
 #logica
 import random
 
 palavras = ["smartphone", "fogueira", "Silvio Santos", "Queen", "manteiga", "rede", "piloto", "Maria Leopoldina", "fronteira"]
 sorteio = random.choice(palavras)
 tentativas = 0
-letras_usuario = []
-escolhas = []
+letras_certas = []
+digitadas = []
+ganhou = False
 
 print("|"," "*9,f"A palavra tem {len(sorteio)}  letra", " "*9,"|")
 tracos =  ( "_") * len(sorteio)
 print(" "* 15 ,tracos, end=" \n\n")
 
 for i in range(0, len(sorteio)):
-    letras_usuario.append("_")
+    letras_certas.append("_")
 
 if sorteio == "smartphone":
         print("1º DICA: Tecnologia\n2º DICA: Usamos no dia a dia")
@@ -61,34 +61,34 @@ if sorteio == "fronteira":
         print("1º DICA: Divisão\n2º DICA: Estar em dois lugares ao mesmo tempo")
         linhas()
 
-while tentativas < chances:
-    letra = input("\nDigite uma letra: ")
-
-    while letra in escolhas: 
+while True:
+    letra = input("\nDigite uma letra: ").lower()
+    linhas()
+    while letra in digitadas: 
         print("Não pode usar a mesma letra duas vezes!\n")
         letra = input("Digite uma letra: ")
     
-    escolhas.append(letra)
+    digitadas.append(letra)
     #substituindo as letras certas na palavra desconhecida
     for i in range(0, len(sorteio)):
         if letra == sorteio[i]:
-            letras_usuario[i] = letra
-            print(letras_usuario)
-
-    if letra in sorteio:
+            letras_certas[i] = letra
+    print(letras_certas)
+  
+    if letra in sorteio.lower():
         print("\nVocê acertou uma letra!")
     else:
         print("\nNão foi dessa vez. Tente novamente!")
-        tentativas += 1
-        print(f"Você tem {tentativas} erros e {chances-tentativas} chances")
-    
-    if letra in escolhas:
-        print(f"Você já escolheu essas letras: {escolhas}\n")
-    
-#fim do jogo
-if tentativas == chances:
-    print("GAME OVER")
-else:
-    print("VOCÊ GANHOU A RODADA")
+        chances-=1
+        tentativas+=1
+        print(f"Você cometeu {tentativas} erros e {chances} chances")
+    ganhou = True
+  
+    for i in sorteio:
+        if i  not in digitadas:
+            ganhou = False
+    if chances == 0 or ganhou:
+                break
+        
 
-print(f"\nA palavra era: {sorteio}")
+
