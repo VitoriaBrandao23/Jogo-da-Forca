@@ -367,28 +367,41 @@ if nivel==1:
       print(f"Você perdeu! A palavra era: {sorteio}")
   
 #nivel 2
+
+d1 = ('Está em dois lugares ao mesmo tempo')
+d2 = ('Divisão')
+d3 = ('Banda famosa')
+d4 = ('Champions League')
+d5 = ('Imperatriz')
+d6 = ('Áustria')
+d7 = ('Televisão')
+d8 = ('Aviãzinho')
+
 if nivel==2:
   print("|"," "*9,f"A palavra tem {len(sorteio2)}  letra", " "*9,"|")
   tracos =  ( "_") * len(sorteio2)
   print(" "* 15 ,tracos, end=" \n\n")
   
+
   for i in range(0, len(sorteio2)):
       letras_certas.append("_")
 
 
   if sorteio2 == "fronteira":
-    d1 = ('Divisão')
-          #print("1º DICA: Divisão\n2º DICA: Estar em dois lugares ao mesmo tempo")
-          #linhas()
+    b1 = d1
+    b2 = d2
+    
   if sorteio2 == "Queen":
-    print("1º DICA: Banda famosa\n2ºDICA: Champions League")
-    linhas()
+    b1 = d3
+    b2 = d4
+
   if sorteio2 == "Maria Leopoldina":
-    print("1º DICA: Imperatriz \n 2º DICA: Áustria")
-    linhas()
+    b1 = d5
+    b2 = d6
+
   if sorteio2 == "Silvio Santos":
-    print("1º DICA: Televisão\n2º DICA: aviãzinho")
-    linhas()
+    b1 = d7
+    b2 = d8
     
   while True:
       letra = input("\nDigite uma letra: ").lower()
@@ -424,13 +437,14 @@ if nivel==2:
         if chances == 4:
           print(corpo[2])
           c = corpo[2]
-          print('Você precisa dede ajuda! \nDica {}'format(d1))
+          print('Você precisa de ajuda! \nDica: {}'.format(b1))
         if chances == 3:
           print(corpo[3])
           c = corpo[3]
         if chances == 2:
           print(corpo[4])
           c = corpo[4]
+          print('Você precisa de outra dica! \nDica 2: {}'.format(b2))
         if chances == 1:
           print(corpo[5])
           c = corpo[5]
