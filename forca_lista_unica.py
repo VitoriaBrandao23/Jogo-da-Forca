@@ -177,12 +177,12 @@ else:
   print(f"Você perdeu! A palavra era: {sorteio}")
   
   
-  #com duas listas_obs
-  """corpo = [
+  #com duas listas_obs  #com duas listas_obs
+
+corpo = [ 
 """
   *-----*
   |     |
-        |
         |
         |
         |
@@ -195,14 +195,12 @@ else:
         |
         |
         |
-        |
 """,
 """
   *-----*
   |     |
   O     |
   |     |
-        |
         |
         |
 """,
@@ -213,14 +211,12 @@ else:
  /|     |
         |
         |
-        |
 """,
 """
   *-----*
   |     |
   O     |
  /|\    |
-        |
         |
         |
 """,
@@ -231,7 +227,6 @@ else:
  /|\    |
  /      |
         |
-        |
 """,
 """
   *-----*
@@ -240,9 +235,7 @@ else:
  /|\    |
  / \    |
         |
-        |
-"""
-]
+"""]
 chances = 6
 def inicio() :
   nome=input("   Por favor digite seu nome de usuario: ")
@@ -264,13 +257,14 @@ def linhas ():
 #logica
 import random
 
-palavras= ["smartphone", "rede","fogueira","piloto","manteiga"]
-palavras_2=["fronteira","Queen","Silvio Santos","Maria Leopoldina"]
+palavras= ["Queen", "rede","fogueira","piloto","manteiga"]
+palavras_2=["fronteira","smartphone","Silvio Santos","Maria Leopoldina"]
 sorteio = random.choice(palavras).lower()
 sorteio2 = random.choice(palavras_2).lower()
 tentativas = 0
 letras_certas = []
 digitadas = []
+c = []
 ganhou = False
 print(" "*8,'DIGITE 1 PARA NÍVEL BÁSICO\n'," "*8, 'DIGITE 2 PARA NÍVEL AVANÇADO\n')
 linhas()
@@ -295,8 +289,8 @@ if nivel==1:
           print("1º DICA: Descanso\n2º DICA: Balança")
           linhas()
   if sorteio == "fogueira":
-          print("1º DICA: Aquece\n2º DICA: Lenha")
-          linhas()
+    print("1º DICA: Aquece\n2º DICA: Lenha")
+    linhas()
   if sorteio == "manteiga":
     print("1º DICA: Derrete\n2º DICA: Amarelo")
     linhas()
@@ -319,31 +313,42 @@ if nivel==1:
           if letra == sorteio[i]:
               letras_certas[i] = letra
       #print(letras_certas)
-    
+
       if letra in sorteio.lower():
+        if tentativas == 0:
           print(corpo[0])
-          print(letras_certas)
-          print("\nVocê acertou uma letra!")
-          print(f"Letras digitadas: {digitadas}")
-          print(f"Você cometeu {tentativas} erros e tem {chances} chances")
+        else:
+          print(c)
+        print(letras_certas)
+        print("\nVocê acertou uma letra!")
+        print(f"Letras digitadas: {digitadas}")
+        print(f"Você cometeu {tentativas} erros e tem {chances} chances")
       else:
         chances-=1
         if chances == 5:
           print(corpo[1])
+          c = corpo[1]
         if chances == 4:
-           print(corpo[2])
+          print(corpo[2])
+          c = corpo[2]
         if chances == 3:
-            print(corpo[3])
+          print(corpo[3])
+          c = corpo[3]
         if chances == 2:
           print(corpo[4])
+          c = corpo[4]
         if chances == 1:
           print(corpo[5])
+          c = corpo[5]
         if chances == 0:
           print(corpo[6])
+          c = corpo[6]
+          
         print("\nNão foi dessa vez. Tente novamente!")
         tentativas+=1
         print(f"Você cometeu {tentativas} erros e tem {chances} chances")
         print(f"Letras digitadas: {digitadas}")
+        
       ganhou = True
     
       for i in sorteio:
@@ -372,8 +377,9 @@ if nivel==2:
 
 
   if sorteio2 == "fronteira":
-          print("1º DICA: Divisão\n2º DICA: Estar em dois lugares ao mesmo tempo")
-          linhas()
+    d1 = ('Divisão')
+          #print("1º DICA: Divisão\n2º DICA: Estar em dois lugares ao mesmo tempo")
+          #linhas()
   if sorteio2 == "Queen":
     print("1º DICA: Banda famosa\n2ºDICA: Champions League")
     linhas()
@@ -383,6 +389,7 @@ if nivel==2:
   if sorteio2 == "Silvio Santos":
     print("1º DICA: Televisão\n2º DICA: aviãzinho")
     linhas()
+    
   while True:
       letra = input("\nDigite uma letra: ").lower()
       linhas()
@@ -393,6 +400,7 @@ if nivel==2:
           print("Não pode usar a mesma letra duas vezes!\n")
           letra = input("Digite uma letra: ")
       
+      
       digitadas.append(letra)
       #substituindo as letras certas na palavra desconhecida
       for i in range(0, len(sorteio2)):
@@ -401,24 +409,35 @@ if nivel==2:
       print(letras_certas)
     
       if letra in sorteio2.lower():
+        if tentativas == 0:
           print(corpo[0])
-          print(letras_certas)
-          print("\nVocê acertou uma letra!")
-          print(f"Letras digitadas: {digitadas}")
+        else:
+          print(c)
+        print(letras_certas)
+        print("\nVocê acertou uma letra!")
+        print(f"Letras digitadas: {digitadas}")
       else:
         chances-=1
         if chances == 5:
           print(corpo[1])
+          c = corpo[1]
         if chances == 4:
-           print(corpo[2])
+          print(corpo[2])
+          c = corpo[2]
+          print('Você precisa de uma dica! \nA dica é: {}'.format(d1))
         if chances == 3:
-            print(corpo[3])
+          print(corpo[3])
+          c = corpo[3]
         if chances == 2:
           print(corpo[4])
+          c = corpo[4]
         if chances == 1:
           print(corpo[5])
+          c = corpo[5]
         if chances == 0:
           print(corpo[6])
+          c = corpo[6]
+          
         print("\nNão foi dessa vez. Tente novamente!")
         tentativas+=1
         print(f"Você cometeu {tentativas} erros e tem {chances} chances")
@@ -433,11 +452,12 @@ if nivel==2:
   
   
   if ganhou:
-  
-      print("Parabéns, você ganhou!!!!!!!!!!!!!!")
-  
-  else:
-  
-      print(f"Você perdeu! A palavra era: {sorteio2}")"""
+    print("Parabéns, você ganhou!!!!!!!!!!!!!!")
 
   
+  else:
+    print(f"Você perdeu! A palavra era: {sorteio2}")
+    
+#import os
+#os.system('cls') or None
+
