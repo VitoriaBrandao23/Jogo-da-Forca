@@ -424,7 +424,7 @@ if nivel==2:
         if chances == 4:
           print(corpo[2])
           c = corpo[2]
-          print('Você precisa de uma dica! \nA dica é: {}'.format(d1))
+          print('Você precisa dede ajuda! \nDica {}'format(d1))
         if chances == 3:
           print(corpo[3])
           c = corpo[3]
