@@ -1,3 +1,4 @@
+#estrutura do boneco
 corpo = [
 """
   *-----*
