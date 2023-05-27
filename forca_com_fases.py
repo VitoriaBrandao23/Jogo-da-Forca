@@ -108,7 +108,7 @@ while nivel !=1 and nivel !=2:
     nivel=int(input("Agora  escolha o nível que você quer jogar: "))
     x+=1
 if nivel==1:
-  print("|"," "*9,f"A palavra tem {len(sorteio)}  letra", " "*9,"|")
+  print("|"," "*9,f"A palavra tem {len(sorteio)}  letras", " "*9,"|")
   tracos =  ( "_") * len(sorteio)
   print(" "* 15 ,tracos, end=" \n\n")
   
@@ -214,7 +214,7 @@ if nivel==1:
     
 #nivel 2
 if nivel==2:
-  print("|"," "*9,f"A palavra tem {len(sorteio2)}  letra", " "*9,"|")
+  print("|"," "*9,f"A palavra tem {len(sorteio2)}  letras", " "*9,"|")
   tracos =  ( "_") * len(sorteio2)
   print(" "* 15 ,tracos, end=" \n\n")
   
