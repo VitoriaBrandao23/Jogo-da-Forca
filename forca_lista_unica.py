@@ -382,11 +382,11 @@ if nivel==1:
   if ganhou:
     print("\033[1;46mParabéns, você ganhou!!!!!!!!!!!!!!\033[m")
     sleep(5)
-    system('clear') or None
+    system('cls') or None
   else:
-    print(f"\033[31mVocê perdeu! A palavra era: {sorteio}\033[m")
+    print(f"\033[31mVocê perdeu! A palavra era: {sorteio.capitalize()}\033[m")
     sleep(5)
-    system('clear') or None
+    system('cls') or None
 #nivel 2
 
 if nivel==2:
@@ -487,10 +487,10 @@ if nivel==2:
   if ganhou:
     print("\033[1;46mParabéns, você ganhou!!!!!!!!!!!!!!\033[m")
     sleep(5)
-    system('clear') or None
+    system('cls') or None
   
   else:
-    print(f"\033[31mVocê perdeu! A palavra era: {sorteio2}\033[m")
+    print(f"\033[31mVocê perdeu! A palavra era: {sorteio2.title()}\033[m")
     sleep(5)
-    system('clear') or None
+    system('cls') or None
 
