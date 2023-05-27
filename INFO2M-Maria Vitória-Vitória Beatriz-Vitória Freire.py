@@ -1,6 +1,6 @@
 from time import sleep
 from os import system
-#estrutura do boneco
+#estrutura do corpo
 corpo = [ 
 """
   *-----*
@@ -63,7 +63,7 @@ corpo = [
 chances = 6
 
 def inicio() :
-  nome=input("   Por favor, digite seu nome de usuário: ")
+  nome=input("   Por favor, digite o seu nome de usuário: ")
   print("|","-"*42,"|")
   sleep(1)
   print("|"," "*9,f" Olá, seja bem vindo {nome} ao "," "*6,"|")
