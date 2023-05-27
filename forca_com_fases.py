@@ -58,9 +58,12 @@ corpo = [
  / \    |
         |
 """]
+
+#cabeçalho
 chances = 6
+
 def inicio() :
-  nome=input("   Por favor digite seu nome de usuario: ")
+  nome=input("   Por favor, digite seu nome de usuário: ")
   print("|","-"*42,"|")
   sleep(1)
   print("|"," "*9,f" Olá, seja bem vindo {nome} ao "," "*6,"|")
@@ -69,6 +72,7 @@ def inicio() :
   print("|"," "*13,"JOGO DA FORCA"," "*14,"|")
   print("|","-="*21,"|")
   sleep(1)
+
 def o_placar():
   inicio()
   print("|","-"*42,"|")
@@ -126,7 +130,7 @@ if nivel==1:
       for i in range(0, len(sorteio)):
           if letra == sorteio[i]:
               letras_certas[i] = letra
-      #print(letras_certas)
+      print(letras_certas)
 
       if letra in sorteio.lower():
         if tentativas == 0:
@@ -198,8 +202,7 @@ if nivel==1:
               ganhou = False
       if chances == 0 or ganhou:
                   break
-  
-  
+  #final do jogo para a fase 1
   if ganhou:
     print("\033[1;46mParabéns, você ganhou!!!!!!!!!!!!!!\033[m")
     sleep(5)
@@ -208,14 +211,13 @@ if nivel==1:
     print(f"\033[31mVocê perdeu! A palavra era: {sorteio.capitalize()}\033[m")
     sleep(5)
     system('cls') or None
+    
 #nivel 2
-
 if nivel==2:
   print("|"," "*9,f"A palavra tem {len(sorteio2)}  letra", " "*9,"|")
   tracos =  ( "_") * len(sorteio2)
   print(" "* 15 ,tracos, end=" \n\n")
   
-
   for i in range(0, len(sorteio2)):
       letras_certas.append("_")
 
@@ -223,12 +225,11 @@ if nivel==2:
       letra = input("\nDigite uma letra: ").lower()
       linhas()
       if len(letra)>1:
-        print("Não entendi, por favor digite uma letra")
+        print("Não entendi! Por favor, digite uma letra.")
         continue
       while letra in digitadas: 
           print("Não pode usar a mesma letra duas vezes!\n")
           letra = input("Digite uma letra: ")
-      
       
       digitadas.append(letra)
       #substituindo as letras certas na palavra desconhecida
@@ -303,13 +304,11 @@ if nivel==2:
               ganhou = False
       if chances == 0 or ganhou:
                   break
-  
-  
+  #final do jogo para a fase 2
   if ganhou:
     print("\033[1;46mParabéns, você ganhou!!!!!!!!!!!!!!\033[m")
     sleep(5)
     system('cls') or None
-  
   else:
     print(f"\033[31mVocê perdeu! A palavra era: {sorteio2.title()}\033[m")
     sleep(5)
