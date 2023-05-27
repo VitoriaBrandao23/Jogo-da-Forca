@@ -1,4 +1,4 @@
-corpo = [
+''''corpo = [
 """
   *-----*
   |     |
@@ -174,10 +174,11 @@ while True:
 if ganhou:
   print("Parabéns, você ganhou!!!")
 else:
-  print(f"Você perdeu! A palavra era: {sorteio}")
-  
-  
-  #com duas listas_obs  #com duas listas_obs
+  print(f"Você perdeu! A palavra era: {sorteio}")'''
+
+  #com duas listas_obs
+from time import sleep
+from os import system
 
 corpo = [ 
 """
@@ -240,10 +241,13 @@ chances = 6
 def inicio() :
   nome=input("   Por favor digite seu nome de usuario: ")
   print("|","-"*42,"|")
-  print("|"," "*9,f" Olá,seja bem vindo {nome}"," "*10,"|")
+  sleep(1)
+  print("|"," "*9,f" Olá, seja bem vindo {nome} ao "," "*6,"|")
   print("|","-="*21,"|")
+  sleep(1)
   print("|"," "*13,"JOGO DA FORCA"," "*14,"|")
   print("|","-="*21,"|")
+  sleep(1)
 def o_placar():
   inicio()
   print("|","-"*42,"|")
@@ -253,6 +257,7 @@ def o_placar():
 o_placar()
 def linhas ():
   print("|","-"*42,"|")
+  sleep(1)
 
 #logica
 import random
@@ -266,12 +271,15 @@ letras_certas = []
 digitadas = []
 c = []
 ganhou = False
-print(" "*8,'DIGITE 1 PARA NÍVEL BÁSICO\n'," "*8, 'DIGITE 2 PARA NÍVEL AVANÇADO\n')
+print(" "*8,'DIGITE 1 PARA NÍVEL BÁSICO\n'," "*7,'DIGITE 2 PARA NÍVEL AVANÇADO\n')
 linhas()
 nivel=int(input("Agora  escolha o nível que você quer jogar: "))
+sleep(2)
+system('cls') or None
+
 x=0
 while nivel !=1 and nivel !=2:
-    print("Você digitou uma fase não existente , por favor digite novamente uma das opções disponiveis .")
+    print("\033[31mVocê digitou uma fase não existente , por favor digite novamente uma das opções disponiveis.\033[m")
     nivel=int(input("Agora  escolha o nível que você quer jogar: "))
     x+=1
 if nivel==1:
@@ -281,31 +289,16 @@ if nivel==1:
   
   for i in range(0, len(sorteio)):
       letras_certas.append("_")
-  
-  if sorteio == "smartphone":
-          print("1º DICA: Tecnologia\n2º DICA: Usamos no dia a dia")
-          linhas()
-  if sorteio == "rede":
-          print("1º DICA: Descanso\n2º DICA: Balança")
-          linhas()
-  if sorteio == "fogueira":
-    print("1º DICA: Aquece\n2º DICA: Lenha")
-    linhas()
-  if sorteio == "manteiga":
-    print("1º DICA: Derrete\n2º DICA: Amarelo")
-    linhas()
-  if sorteio == "piloto":
-    print("1º DICA: Cabine de avião\n2º DICA: Professor usa")
-    linhas()
+    
   while True:
       letra = input("\nDigite uma letra: ").lower()
       linhas()
       if len(letra)>1:
-        print("você errou, não pode digitar")
+        print("Não entendi, por favor digite uma letra")
         continue
       while letra in digitadas: 
           print("Não pode usar a mesma letra duas vezes!\n")
-          letra = input("Digite uma letra: ")
+          letra = input("Digite outra letra: ")
       
       digitadas.append(letra)
       #substituindo as letras certas na palavra desconhecida
@@ -331,12 +324,40 @@ if nivel==1:
         if chances == 4:
           print(corpo[2])
           c = corpo[2]
+          if sorteio == "queen":
+            print('Você precisa de ajuda! \nDica: Banda famosa')
+          if sorteio == "rede":
+            print('Você precisa de ajuda! \nDica: Balança')
+    
+          if sorteio == "fogueira":
+            print('Você precisa de ajuda! \nDica: Aquece')
+    
+          if sorteio == "manteiga":
+            print('Você precisa de ajuda! \nDica: Derrete')
+
+          if sorteio == "piloto":
+            print('Você precisa de ajuda! \nDica: Cabine de avião')  
+            
         if chances == 3:
           print(corpo[3])
           c = corpo[3]
         if chances == 2:
           print(corpo[4])
           c = corpo[4]
+          if sorteio == "queen":
+            print('Você precisa de mais uma ajuda! \nDica 2: Champions League')
+          if sorteio == "rede":
+            print('Você precisa de mais uma ajuda! \nDica 2: Descanso')
+    
+          if sorteio == "fogueira":
+            print('Você precisa de mais uma ajuda! \nDica 2: Lenha')
+    
+          if sorteio == "manteiga":
+            print('Você precisa de mais uma ajuda! \nDica 2: Amarelo')
+
+          if sorteio == "piloto":
+            print('Você precisa de mais uma ajuda! \nDica 2: Professor usa')  
+            
         if chances == 1:
           print(corpo[5])
           c = corpo[5]
@@ -359,23 +380,14 @@ if nivel==1:
   
   
   if ganhou:
-  
-      print("Parabéns, você ganhou!!!!!!!!!!!!!!")
-  
+    print("\033[1;46mParabéns, você ganhou!!!!!!!!!!!!!!\033[m")
+    sleep(5)
+    system('clear') or None
   else:
-  
-      print(f"Você perdeu! A palavra era: {sorteio}")
-  
+    print(f"\033[31mVocê perdeu! A palavra era: {sorteio}\033[m")
+    sleep(5)
+    system('clear') or None
 #nivel 2
-
-d1 = ('Está em dois lugares ao mesmo tempo')
-d2 = ('Divisão')
-d3 = ('Banda famosa')
-d4 = ('Champions League')
-d5 = ('Imperatriz')
-d6 = ('Áustria')
-d7 = ('Televisão')
-d8 = ('Aviãzinho')
 
 if nivel==2:
   print("|"," "*9,f"A palavra tem {len(sorteio2)}  letra", " "*9,"|")
@@ -386,28 +398,11 @@ if nivel==2:
   for i in range(0, len(sorteio2)):
       letras_certas.append("_")
 
-
-  if sorteio2 == "fronteira":
-    b1 = d1
-    b2 = d2
-    
-  if sorteio2 == "Queen":
-    b1 = d3
-    b2 = d4
-
-  if sorteio2 == "Maria Leopoldina":
-    b1 = d5
-    b2 = d6
-
-  if sorteio2 == "Silvio Santos":
-    b1 = d7
-    b2 = d8
-    
   while True:
       letra = input("\nDigite uma letra: ").lower()
       linhas()
       if len(letra)>1:
-        print("você errou, não pode digitar")
+        print("Não entendi, por favor digite uma letra")
         continue
       while letra in digitadas: 
           print("Não pode usar a mesma letra duas vezes!\n")
@@ -436,22 +431,46 @@ if nivel==2:
           c = corpo[1]
         if chances == 4:
           print(corpo[2])
-          c = corpo[2]
-          print('Você precisa de ajuda! \nDica: {}'.format(b1))
+          c = corpo[2]  
+
+          if sorteio2 == "silvio santos":
+              print('Você precisa de ajuda! \nDica: Aviãozinho')
+            
+          if sorteio2 == "fronteira":
+              print('Você precisa de ajuda! \nDica: Está em dois lugares ao mesmo tempo')
+          
+          if sorteio2 == "maria leopoldina":
+            print('Você precisa de ajuda! \nDica: Imperatriz')
+            
+          if sorteio2 == "smartphone":
+            print('Você precisa de ajuda! \nDica: Usamos no dia a dia')
+            
         if chances == 3:
           print(corpo[3])
           c = corpo[3]
         if chances == 2:
           print(corpo[4])
           c = corpo[4]
-          print('Você precisa de outra dica! \nDica 2: {}'.format(b2))
+
+          if sorteio2 == "silvio santos":
+              print('Você precisa de mais uma ajuda! \nDica 2: Televisão')
+            
+          if sorteio2 == "maria leopoldina":
+            print('Você precisa de mais uma ajuda! \nDica 2: Áustria')
+            
+          if sorteio2 == "fronteira":
+           print('Você precisa de mais uma ajuda! \nDica 2: Divisão')
+            
+          if sorteio2 == "smartphone":
+            print('Você precisa de mais uma ajuda! \nDica 2: Tecnologia')
+            
         if chances == 1:
           print(corpo[5])
           c = corpo[5]
         if chances == 0:
           print(corpo[6])
           c = corpo[6]
-          
+      
         print("\nNão foi dessa vez. Tente novamente!")
         tentativas+=1
         print(f"Você cometeu {tentativas} erros e tem {chances} chances")
@@ -466,12 +485,12 @@ if nivel==2:
   
   
   if ganhou:
-    print("Parabéns, você ganhou!!!!!!!!!!!!!!")
-
+    print("\033[1;46mParabéns, você ganhou!!!!!!!!!!!!!!\033[m")
+    sleep(5)
+    system('clear') or None
   
   else:
-    print(f"Você perdeu! A palavra era: {sorteio2}")
-    
-#import os
-#os.system('cls') or None
+    print(f"\033[31mVocê perdeu! A palavra era: {sorteio2}\033[m")
+    sleep(5)
+    system('clear') or None
 
