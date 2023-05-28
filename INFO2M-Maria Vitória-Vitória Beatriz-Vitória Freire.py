@@ -217,6 +217,8 @@ if nivel==2:
   print("|"," "*9,f"A palavra tem {len(sorteio2)}  letras", " "*9,"|")
   tracos =  ( "_") * len(sorteio2)
   print(" "* 15 ,tracos, end=" \n\n")
+  if sorteio == "silvio santos" or "maria leopoldina":
+    print("ATENÇÃO! A palavra secreta é uma palavra composta!")
   
   for i in range(0, len(sorteio2)):
       letras_certas.append("_")
