@@ -96,9 +96,10 @@ letras_certas = []
 digitadas = []
 c = []
 ganhou = False
-print(" "*8,'DIGITE 1 PARA NÍVEL BÁSICO\n'," "*7,'DIGITE 2 PARA NÍVEL AVANÇADO')
+print("|"," "*8,'DIGITE 1 PARA NÍVEL BÁSICO'," "*6, "|")
+print("|"," "*6,'DIGITE 2 PARA NÍVEL AVANÇADO'," "*6, "|")
 linhas()
-nivel=int(input("Agora  escolha o nível que você quer jogar: "))
+nivel=int(input("\nAgora  escolha o nível que você quer jogar: "))
 sleep(2)
 system('cls') or None
 
