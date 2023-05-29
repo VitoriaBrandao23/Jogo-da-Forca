@@ -66,10 +66,10 @@ def inicio() :
   nome=input("   Por favor, digite seu nome de usuário: ")
   print("|","-"*42,"|")
   sleep(1)
-  print("|"," "*9,f" Olá, seja bem vindo {nome} ao "," "*6,"|")
+  print("|"," "*6,f" Olá, seja bem vindo {nome} ao "," "*6,"|")
   print("|","-="*21,"|")
   sleep(1)
-  print("|"," "*13,"JOGO DA FORCA"," "*14,"|")
+  print("|"," "*7,"JOGO DA FORCA DAS VITÓRIAS"," "*7,"|")
   print("|","-="*21,"|")
   sleep(1)
 
@@ -96,9 +96,10 @@ letras_certas = []
 digitadas = []
 c = []
 ganhou = False
-print(" "*8,'DIGITE 1 PARA NÍVEL BÁSICO\n'," "*7,'DIGITE 2 PARA NÍVEL AVANÇADO\n')
+print("|"," "*8,'DIGITE 1 PARA NÍVEL BÁSICO'," "*6, "|")
+print("|"," "*6,'DIGITE 2 PARA NÍVEL AVANÇADO'," "*6, "|")
 linhas()
-nivel=int(input("Agora  escolha o nível que você quer jogar: "))
+nivel=int(input("\nAgora  escolha o nível que você quer jogar: "))
 sleep(2)
 system('cls') or None
 
